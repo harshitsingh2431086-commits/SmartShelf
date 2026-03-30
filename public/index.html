@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Library Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>Library Management System</h1>
+        <p>Manage books, borrowers, and availability</p>
+      </header>
+
+      <main>
+        <section class="form-section">
+          <h2>Add / Edit Book</h2>
+          <form id="book-form">
+            <input type="hidden" id="book-id" />
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input id="title" type="text" placeholder="Book title" required />
+            </div>
+            <div class="form-group">
+              <label for="author">Author</label>
+              <input id="author" type="text" placeholder="Author name" required />
+            </div>
+            <div class="form-group">
+              <label for="category">Category</label>
+              <input id="category" type="text" placeholder="e.g. Fiction" />
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn primary">Save Book</button>
+              <button type="button" id="cancel-edit" class="btn secondary hidden">
+                Cancel Edit
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section class="list-section">
+          <div class="list-header">
+            <h2>Books</h2>
+            <input
+              id="search"
+              type="text"
+              placeholder="Search by title, author, or category..."
+            />
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Borrower</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="books-tbody"></tbody>
+          </table>
+          <p id="empty-message" class="empty-message hidden">
+            No books found. Add some using the form above.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
